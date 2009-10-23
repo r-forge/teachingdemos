@@ -65,7 +65,7 @@ HTKidentify <- function(x,y,label=seq_along(x), xlab=deparse(substitute(x)),
 	img <- tkrplot(tt, replot, hscale=1.5, vscale=1.5)
 	tkpack(img, side='top')
 	iw <- as.numeric(tcl("image","width", tkcget(img, "-image")))
-	ih <- as.numeric(tcl("image","width", tkcget(img, "-image")))
+	ih <- as.numeric(tcl("image","height", tkcget(img, "-image")))
 
 	cc <- function(x,y) {
 		x <- (as.real(x) -1)/iw
