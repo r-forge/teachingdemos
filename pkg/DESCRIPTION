@@ -1,6 +1,6 @@
 Package: TeachingDemos
 Title: Demonstrations for teaching and learning
-Version: 2.4
+Version: 2.5
 Author: Greg Snow
 Description: This package is a set of demonstration functions that can be used in a classroom to demonstrate statistical concepts, or on your own to better understand the concepts or the programming.
 Maintainer: Greg Snow <greg.snow@imail.org>

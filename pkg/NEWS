@@ -3,6 +3,7 @@ New in TeachingDemos version 2.5
 * Turned off clipping (par(xpd=TRUE)) inside of my.symbols so that
   subsequent points are plotted
 
+* New function sigma.test for testing a single variance.
 
 
 New in TeachingDemos version 2.4
