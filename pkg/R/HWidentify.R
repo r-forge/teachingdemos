@@ -39,6 +39,8 @@ HWidentify <- function(x,y,label=seq_along(x), xlab=deparse(substitute(x)),
 HTKidentify <- function(x,y,label=seq_along(x), xlab=deparse(substitute(x)),
 				ylab=deparse(substitute(y)), ...) {
 
+    if( !require(tkrplot) ) stop ('tkrplot package is required')
+
 	dx <- numeric(0)
 	dy <- numeric(0)
 
