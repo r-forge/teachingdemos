@@ -128,13 +128,13 @@ vt.residpermute(model, ..., orig=TRUE)
   anything meaningful.
 }
 \references{
-%% ~put references to the literature/web site here ~
+Buja, A., Cook, D. Hofmann, H., Lawrence, M. Lee, E.-K., Swayne, D.F and
+  Wickham, H. (2009) Statistical Inference for exploratory data analysis
+  and model diagnostics Phil. Trans. R. Soc. A 2009 367, 4361-4383 doi:
+  10.1098/rsta.2009.0120
 }
 \author{Greg Snow \email{greg.snow@imail.org}}
-\note{
- These functions are based on ideas by Dr. Diane Cook of Iowa State
- University.
-}
+
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 \section{Warning}{The p-value is based on the assumption that under the
