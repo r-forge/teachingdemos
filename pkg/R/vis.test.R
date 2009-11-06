@@ -1,4 +1,5 @@
-vis.test <- function(..., FUN, data.name='', alternative) {
+vis.test <- function(..., FUN, nrow=3, ncol=3, npage=3,
+                     data.name='', alternative) {
     dots <- list(...)
     if(missing(FUN)) {
         m <- sapply( dots, mode )
