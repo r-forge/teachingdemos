@@ -13,15 +13,20 @@ vis.test <- function(..., FUN, nrow=3, ncol=3, npage=3,
         dots[[mm]] <- NULL
     }
 
-    seeds <- sample(1024, 20)
-    seeds <- list( sample( c(NA, seeds[1:8] ) ),
-                   sample( c(NA, seeds[1:2], seeds[9:14] ) ),
-                   sample( c(NA, seeds[1:2], seeds[15:20] ) ) )
+    seeds <- sample(1024, (nrow*ncol - 3)*npage+2)
+    cseeds <- seeds[1:2]
+    seeds <- seeds[ -(1:2) ]
+    seeds <- matrix(seeds, ncol=npage)
+    seeds <- lapply( 1:npage,
+                    function(i) {
+                        sample( c(NA, cseeds, seeds[,i] ) )
+                    } )
 
-    sel <- integer(3)
+
+    sel <- integer(npage)
     dev.new()
-    par(mfrow=c(3,3))
-    for(i in 1:3) {
+    par(mfrow=c(nrow,ncol))
+    for(i in 1:npage) {
         for( j in seeds[[i]] ) {
             if (is.na(j)) {
                 dots$orig <- TRUE
@@ -36,22 +41,26 @@ vis.test <- function(..., FUN, nrow=3, ncol=3, npage=3,
         loc <- locator(1)
         csel <- 1
         x <- grconvertX(loc$x, from='user', to='ndc')
-        if( x > 1/3 ) csel <- csel + 1
-        if( x > 2/3 ) csel <- csel + 1
+        for ( k in seq_len(ncol-1)/ncol ) {
+            if( x > k ) csel <- csel + 1
+        }
+
         y <- 1-grconvertY(loc$y, from='user', to='ndc')
-        if( y > 1/3 ) csel <- csel + 3
-        if( y > 2/3 ) csel <- csel + 3
+        for ( k in seq_len(nrow-1)/nrow ) {
+            if( y > k ) csel <- csel + ncol
+        }
 
         sel[i] <- csel
 
     }
 
-    cnt <- sum( sapply( 1:3, function(i) is.na(seeds[[i]][ sel[i] ]) ) )
+    cnt <- sum( sapply( seq_len(npage), function(i) is.na(seeds[[i]][ sel[i] ]) ) )
     names(cnt) <- 'Number Correct'
-    p.value <- pbinom( 3-cnt, 3, 8/9 )
+    p.value <- pbinom( npage-cnt, npage, 1-1/(ncol*nrow) )
 
     out <- list( method='Visual Test', data.name=data.name,
-                 statistic=cnt, p.value=p.value)
+                 statistic=cnt, p.value=p.value,
+                 npage=npage, ncol=ncol, nrow=nrow)
     if( !missing(alternative) ) out$alternative <- alternative
 
     out$seeds <- seeds

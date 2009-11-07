@@ -17,7 +17,7 @@ and some modification that makes the null hypothesis true.  The user
 then tries to choose which graph represents the real data.
 }
 \usage{
-vis.test(..., FUN, data.name = "", alternative)
+vis.test(..., FUN, nrow=3, ncol=3, npage=3, data.name = "", alternative)
 vt.qqnorm(x, orig=TRUE)
 vt.normhist(x, ..., orig=TRUE)
 vt.scatterpermute(x, y, ..., orig=TRUE)
@@ -29,7 +29,10 @@ vt.residpermute(model, ..., orig=TRUE)
   \item{\dots}{ data and arguments to be passed on to \code{FUN} or to
   plotting functions, see details below}
   \item{FUN}{ The function to create the plots on the original or null
-  hypothesis data}
+    hypothesis data}
+  \item{nrow}{ The number of rows of graphs per page }
+  \item{ncol}{ The number of columns of graphs per page }
+  \item{npage}{ The number of pages to use in the testing }
   \item{data.name}{Optional character string for the name of the data in
   the output}
   \item{alternative}{Optional character string for the alternative
@@ -42,17 +45,21 @@ vt.residpermute(model, ..., orig=TRUE)
   \code{fitted} and \code{resid} return vectors}
 }
 \details{
-  The \code{vis.test} function will create a 3 by 3 grid of plots, one
-  of which is based on the real (original) data and the other 8 which
+  The \code{vis.test} function will create a \code{nrow} by \code{ncol}
+  grid of plots, one
+  of which is based on the real (original) data and the others which
   are based on a null hypothesis simulation (a statistical "lineup").
   The real plot is placed at
-  random within the set of 9.  The user then clicks on their best guess
+  random within the set.  The user then clicks on their best guess
   of which plot is the real one (the most different from the others).
   If the null hypothesis is true for the real data, then this will be a
-  guess with a 1/9 probability of success.  This process is then
-  repeated 2 more times.   A p-value is then constructed based on the
-  number of correct guesses (out of 3) and the null hypothesis that
-  there is a 1/9 chance of guessing correct each time (this will work
+  guess with a 1/(\code{nrow}*\code{ncol}) probability of success.  This
+  process is then
+  repeated for a total of \code{npage} times.   A p-value is then
+  constructed based on the
+  number of correct guesses and the null hypothesis that
+  there is a 1/(\code{nrow}*\code{ncol}) chance of guessing correct each
+  time (this will work
   best if the person doing the choosing has not already seen
   plots/summaries of the data).
 
@@ -119,10 +126,13 @@ vt.residpermute(model, ..., orig=TRUE)
   \item{data.name}{The name of the data passed to the function}
   \item{statistic}{The number of correct "guesses"}
   \item{p.value}{The p-value based on the number of correct "guesses"}
+  \item{nrow}{The number of rows per page}
+  \item{ncol}{The number of columns per page}
+  \item{npage}{The number of pages}
   \item{seeds}{A list with 3 vectors containing the seeds set before
     calling \code{FUN}, the correct plot has an \code{NA}}
-  \item{selected}{A vector of length 3 indicating the number of the
-    figure picked in each of the 3 tries}
+  \item{selected}{A vector of length \code{npage} indicating the number of the
+    figure picked in each of the \code{npage} tries}
 
   The other functions are run for their side effects and do not return
   anything meaningful.
@@ -138,13 +148,23 @@ Buja, A., Cook, D. Hofmann, H., Lawrence, M. Lee, E.-K., Swayne, D.F and
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 \section{Warning}{The p-value is based on the assumption that under the
-  null hypothesis there is a 1/9th chance of picking the correct plot
-  and that the 3 choices are independent of each other.  This may not be
+  null hypothesis there is a 1/(\code{nrow}*\code{ncol}) chance of
+  picking the correct plot
+  and that the \code{npage} choices are independent of each other.  This
+  may not be
   true if the user is familiar with the data or remembers details of the
   plot between picks.}
 
 \seealso{\code{\link{set.seed}} }
 \examples{
+
+if(interactive()) {
+  x <- rexp(25, 1/3)
+  vis.test(x, vt.qqnorm)
+
+  x <- rnorm(100, 50, 3)
+  vis.test(x, vt.normhist)
+}
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
