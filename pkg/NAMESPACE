@@ -20,7 +20,9 @@ export(bct,char2seed,chisq.detail,ci.examp,clipplot,clt.examp,cnvrt.coords,
        vis.gamma,vis.normal,vis.t,z.test,zoomplot,tkexamp,col2grey,col2gray,
        TkApprox,TkSpline,txtStart,txtStop,txtComment,txtSkip,etxtStart,
        etxtStop,etxtComment,etxtSkip,etxtPlot,dynIdentify,TkIdentify,
-       Predict.Plot, TkPredict, "%<%", "%<=%", panel.my.symbols)
+       Predict.Plot, TkPredict, "%<%", "%<=%", panel.my.symbols,
+       SnowsPenultimateNormalityTest,
+       SnowsCorrectlySizedButOtherwiseUselessTestOfAnything)
 
 
 

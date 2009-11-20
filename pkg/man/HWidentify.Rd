@@ -44,13 +44,14 @@ Greg Snow, \email{greg.snow@imail.org}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{\identify}}
+\code{\link{identify}}
 }
 \examples{
 if( interactive() ){
   tmpx <- runif(25)
   tmpy <- rnorm(25)
   HTKidentify(tmpx,tmpy, LETTERS[1:25], pch=letters)
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
