@@ -2,91 +2,78 @@
 \alias{SnowsCorrectlySizedButOtherwiseUselessTestOfAnything}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Snow's Correctly Sized But Otherwise Useless Test of Anything
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This is a hypothesis test designed to be correctly sized in that the
+probability of rejecting the null when it is true will be equal to your
+alpha level.  Other than that it is a pretty useless test mainly
+intended for when people say something like "I just need a p-value".
 }
 \usage{
-SnowsCorrectlySizedButOtherwiseUselessTestOfAnything(x, data.name = deparse(substitute(x)), alternative = "You Are Lucky", ..., seed)
+SnowsCorrectlySizedButOtherwiseUselessTestOfAnything(x,
+  data.name = deparse(substitute(x)),
+  alternative = "You Are Lucky", ..., seed)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
-}
-  \item{data.name}{
-%%     ~~Describe \code{data.name} here~~
-}
-  \item{alternative}{
-%%     ~~Describe \code{alternative} here~~
-}
-  \item{\dots}{
-%%     ~~Describe \code{\dots} here~~
-}
-  \item{seed}{
-%%     ~~Describe \code{seed} here~~
-}
+  \item{x}{ The data, or nothing, or something equally irrelevant}
+  \item{data.name}{ The name of  the data for the output}
+  \item{alternative}{The phrase for the alternate hypothesis in the output}
+  \item{\dots}{ Additional arguments that will be silently ignored (like
+  \code{x}), future versions may mockingly ignore these instead}
+  \item{seed}{ A seed (numeric or character) used to seed the random
+    number generator.  Use this or manually set the seed if you want
+    reproducible (but still meaningless) results}
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+  Some of the advantages/disadvantages of this test include:
+  \itemize{
+    \item{The probability of a Type I error is alpha}
+    \item{Power can be easily computed (it is alpha)}
+    \item{Power is independent of the sample size}
+    \item{Power is independent of the hypotheses}
+    \item{This test is not affected by missing data (present data
+      either)}
+    \item{This test does not depend on any distributional or
+      independence assumptions}
+    }
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+  An object of class htest with the following elements:
+
+  \item{p.value}{The p-value}
+  \item{statistic}{The test statistic (identical to the p-value)}
+  \item{data.name}{The name of the data (if any)}
+  \item{method}{The name of the test}
+  \item{alternative}{a phrase representing the alternative hypothesis}
+  \item{seed}{optionally the seed that was used}
 }
 \references{
-%% ~put references to the literature/web site here ~
+The author is unlikely to be willing to publish in any "journal" that
+  would be willing to publish this test.
 }
 \author{
-%%  ~~who you are~~
+Greg Snow \email{greg.snow@imail.org}
 }
 \note{
-%%  ~~further notes~~
+If someone has suggested that you consider this test, they most likely
+  do not intend for you to actually use the test, rather to reconsider
+  your question or the assumptions that you are making or trying to
+  avoid.  This test should only be used to illustrate a point and
+  decisions (other than maybe who should pay for lunch) should never be
+  made based on the results of this test.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{runif}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(x,
-            data.name=deparse(substitute(x)), alternative='You Are Lucky',
-                                                                 ...,
-                                                                 seed) {
-    if( !missing(seed) ) {
-        if( is.numeric(seed) ) {
-            set.seed(seed)
-        } else {
-            char2seed(seed)
-        }
-    }
-
-    tmp.p <- runif(1)
-
-    out <- list(
-                p.value = tmp.p,
-                data.name=data.name,
-                method = "Snow's Correctly Sized But Otherwise Useless Test of Anything",
-                alternative=alternative)
-    if( !missing(seed) ) out$seed <- seed
-    names(tmp.p) <- 'Random Uniform Value'
-    out$statistic <- tmp.p
-
-    class(out) <- 'htest'
-    return(out)
-  }
+  SnowsCorrectlySizedButOtherwiseUselessTestOfAnything(log(rnorm(100)))
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ htest }
+
