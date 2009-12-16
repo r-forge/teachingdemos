@@ -1,5 +1,7 @@
 New in TeachingDemos version 2.5
 
+* New functions HWidentify and HTKidentify to label points being hovered over.
+
 * Turned off clipping (par(xpd=TRUE)) inside of my.symbols so that
   subsequent points are plotted
 
