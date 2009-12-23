@@ -16,6 +16,7 @@ HTKidentify(x, y, label = seq_along(x), xlab = deparse(substitute(x)), ylab = de
 \arguments{
   \item{x}{ x-coordinates to plot }
   \item{y}{ y-coordinates to plot}
+  \item{label}{ Labels to show for each point }
   \item{xlab}{ Label for x-axis }
   \item{ylab}{ Label for y-axis}
   \item{\dots}{additional arguments passed through to plot}

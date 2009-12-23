@@ -41,6 +41,8 @@ vt.residpermute(model, ..., orig=TRUE)
   based on the null hypothesis }
   \item{x}{data or x-coordinates of the data}
   \item{y}{y-coordinates of the data}
+  \item{type}{type of plot, passed on to plot function (use 'p' for
+  points)}
   \item{model}{An \code{lm} object, or any model object for which
   \code{fitted} and \code{resid} return vectors}
 }

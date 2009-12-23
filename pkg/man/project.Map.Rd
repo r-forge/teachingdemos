@@ -44,7 +44,7 @@ library(mapproj)
 # assumes that the time zone shape files have been downloaded
 # from: http://openmap.bbn.com/data/shape/timezone/
 
-tz <- read.shape('WRLDTZA')
+tz <- maptools:::read.shape('WRLDTZA')
 plot(Map2poly(project.Map(tz,'bonne',param=45)))
 
 plot(Map2poly(project.Map(tz,'bonne',param=45)),
