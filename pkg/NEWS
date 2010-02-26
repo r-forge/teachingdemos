@@ -1,5 +1,7 @@
 New in TeachingDemos version 2.6
 
+* function vis.test and friends made available
+
 * Fixed bug in tkexamp with checkboxes.
 
 * Added 'outliers' dataset
