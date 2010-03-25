@@ -1,6 +1,10 @@
+New in TeachingDemos version 2.7
+
+
 New in TeachingDemos version 2.6
 
-* function vis.test and friends made available
+* function vis.test and friends made available (was present before,
+  but not in the Namespace).
 
 * Fixed bug in tkexamp with checkboxes.
 
