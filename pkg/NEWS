@@ -1,5 +1,9 @@
 New in TeachingDemos version 2.7
 
+* new functions wdtxtStart and friends to insert transcript into MS Word.
+
+* function vt.residsim to work with vis.test.
+
 * fixed several functions that depend on tcltk but did not load it.
 
 New in TeachingDemos version 2.6
