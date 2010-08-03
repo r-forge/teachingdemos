@@ -84,7 +84,8 @@ subplot(fun, x, y, size=c(1,1), vadj=0.5, hadj=0.5,
 
 % ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{\code{\link{cnvrt.coords}}, \code{\link{par}}, \code{\link{symbols}}}
+\seealso{\code{\link{cnvrt.coords}}, \code{\link{par}},
+  \code{\link{symbols}}, \code{\link{my.symbols}}}
 \examples{
 # make an original plot
 plot( 11:20, sample(51:60) )
@@ -123,19 +124,6 @@ par(op)
 
 
 # scatter-plot using images
-if(require(rimage)){
-	data(logo)
-
-	x <- runif(10)
-	y <- runif(10)
-
-	plot(x,y,type='n')
-	for(i in 1:10){
-		subplot(plot(logo),x[i],y[i],size=c(.3,.3))
-	}
-}
-
-# using EBImage instead of rimage package
 if(require(EBImage)) {
 
   image.EBImage <- function(x,...) {
