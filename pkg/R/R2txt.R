@@ -364,7 +364,7 @@ R2wdtxt <- function(cmd,res,s,vis) {
                           cmdline)
           cmdline <- gsub('}', paste("\n",TDenv$R2txt.vars$continue,"}", sep=''),
                           cmdline)
-          wdVerbatim( paste(TDenv$R2txt.vars$prompt, cmdline, sep=''),
+          R2wd::wdVerbatim( paste(TDenv$R2txt.vars$prompt, cmdline, sep=''),
                        fontsize=TDenv$R2txt.vars$fontsize )
       }
       if( TDenv$R2txt.vars$cmdfile ) {
@@ -396,7 +396,7 @@ wdtxtStart <- function(commands=TRUE, results=TRUE, fontsize=9,
 
   if( !require(R2wd) ) stop('the R2wd package is required')
 
-  wdGet()
+  R2wd::wdGet()
 
   TDenv$R2txt.vars$vis <- visible.only
   TDenv$R2txt.vars$cmd <- commands
@@ -464,9 +464,9 @@ wdtxtComment <- function(txt,cmdtxt) {
 
     TDenv$R2txt.vars$first <- TRUE
     if(!missing(txt)) {
-        wdParagraph()
-        wdBody(txt)
-        wdParagraph()
+        R2wd::wdParagraph()
+        R2wd::wdBody(txt)
+        R2wd::wdParagraph()
     }
     if(!missing(cmdtxt)) {
         cat("# ",cmdtxt,"\n", file=TDenv$R2txt.vars$con2)
@@ -486,6 +486,6 @@ wdtxtPlot <- function(height=5, width=5, pointsize=10) {
     TDenv$R2txt.vars$first <- TRUE
 
     tmp <- recordPlot()
-    wdPlot(tmp, plotfun=replayPlot, height=height, width=width,
+    R2wd::wdPlot(tmp, plotfun=replayPlot, height=height, width=width,
            pointsize=pointsize)
 }

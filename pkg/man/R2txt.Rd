@@ -84,6 +84,7 @@ wdtxtPlot(height=5, width=5, pointsize=10)
   \item{width}{Width of plot, passed to \code{dev.copy2eps} or \code{wdPlot}}
   \item{height}{Height of plot, passed to \code{dev.copy2eps} or
     \code{wdPlot}}
+  \item{fontsize}{Size of font to use in MSWord}
   \item{pointsize}{ passed to \code{wdPlot} }
 }
 \details{
