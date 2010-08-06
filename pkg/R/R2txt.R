@@ -377,7 +377,7 @@ R2wdtxt <- function(cmd,res,s,vis) {
       if( TDenv$R2txt.vars$res ) {
           tmp <- textConnectionValue(TDenv$R2txt.vars$outcon)
           if(length(tmp)) {
-              wdVerbatim(paste(tmp,sep='\n'), fontsize=TDenv$R2txt.vars$fontsize)
+              R2wd::wdVerbatim(paste(tmp,sep='\n'), fontsize=TDenv$R2txt.vars$fontsize)
               sink()
               close(TDenv$R2txt.vars$outcon)
               TDenv$R2txt.vars$outcon <- textConnection(NULL, open='w')
