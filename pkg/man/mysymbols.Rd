@@ -121,7 +121,7 @@ tmpfun <- function(w,data,ylim,...){
   tmp <- data[[w]]
   plot(seq(along=tmp),tmp, type='l', xlab='',ylab='',
        axes=FALSE, ylim=ylim)
-  abline(h=0, col='grey')
+  lines(par('usr')[1:2], c(0,0), col='grey')
 }
 
 my.symbols(x,y, symb=tmpfun, inches=0.4, add=FALSE, symb.plots=TRUE,

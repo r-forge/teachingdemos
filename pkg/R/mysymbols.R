@@ -13,7 +13,11 @@ my.symbols <- function(x, y=NULL, symb, inches=1, add=TRUE,
   xy <- xy.coords(x,y,recycle=TRUE)
 
   pin <- par('pin')
-  tmp <- cnvrt.coords(xy,input='usr')$plt
+
+#  tmp <- cnvrt.coords(xy,input='usr')$plt
+  tmp <- list()
+  tmp$x <- grconvertX(xy$x, to='npc')
+  tmp$y <- grconvertY(xy$y, to='npc')
 
   tmp.xlen <- length(tmp$x)
 
@@ -33,8 +37,17 @@ my.symbols <- function(x, y=NULL, symb, inches=1, add=TRUE,
   y.low  <- tmp$y -    vadj *inches/pin[2]
   y.high <- tmp$y + (1-vadj)*inches/pin[2]
 
-  xy.low  <- cnvrt.coords(x.low,  y.low,  'plt')$fig
-  xy.high <- cnvrt.coords(x.high, y.high, 'plt')$fig
+#  xy.low  <- cnvrt.coords(x.low,  y.low,  'plt')$fig
+#  xy.high <- cnvrt.coords(x.high, y.high, 'plt')$fig
+
+  xy.low <- list()
+  xy.low$x <- grconvertX(x.low, from='npc', to='nfc')
+  xy.low$y <- grconvertY(y.low, from='npc', to='nfc')
+
+  xy.high <- list()
+  xy.high$x <- grconvertX(x.high, from='npc', to='nfc')
+  xy.high$y <- grconvertY(y.high, from='npc', to='nfc')
+
 
   plotfun <- if( is.function(symb) ) {
     if(symb.plots) {

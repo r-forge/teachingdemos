@@ -84,7 +84,7 @@ subplot(fun, x, y, size=c(1,1), vadj=0.5, hadj=0.5,
 
 % ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{\code{\link{cnvrt.coords}}, \code{\link{par}},
+\seealso{\code{\link{grconvertX}}, \code{\link{par}},
   \code{\link{symbols}}, \code{\link{my.symbols}}}
 \examples{
 # make an original plot
