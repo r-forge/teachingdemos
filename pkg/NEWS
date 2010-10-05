@@ -1,5 +1,9 @@
 New in TeachingDemos version 2.8
 
+* fixed bug in subplot when subplotting inside mfrow/mfcol figures.
+
+* Added ldsgrowth dataset
+
 * Modified subplot and other functions to no longer need cnvrt.coords.
 
 * cnvert.coords is now depricated, use grconvertX and grconvertY from

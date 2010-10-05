@@ -184,7 +184,7 @@ date()
 x <- rnorm(25)
 summary(x)
 stem(x)
-etxtSkip{?hist}
+etxtSkip(?hist)
 hist(x)
 etxtPlot()
 Sys.Date()

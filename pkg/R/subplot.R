@@ -1,10 +1,11 @@
 subplot <- function(fun, x, y=NULL, size=c(1,1), vadj=0.5, hadj=0.5,
                     inset=c(0,0), type=c('plt','fig'), pars=NULL){
 
-  old.par <- par(no.readonly=TRUE)
-  on.exit(par(old.par))
+#  old.par <- par(no.readonly=TRUE)
 
-  type <- match.arg(type)
+    type <- match.arg(type)
+    old.par <- par( c(type, 'usr', names(pars) ) )
+    on.exit(par(old.par))
 
   if(missing(x)) x <- locator(2)
 
