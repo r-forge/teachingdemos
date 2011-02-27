@@ -65,7 +65,8 @@ ms.image(img, transpose=TRUE, ...)
 }
 \author{Greg Snow \email{greg.snow@imail.org}}
 \seealso{\code{\link{my.symbols}}, \code{\link{polygon}},
-  \code{\link{arrows}}, \code{\link{lines}}
+  \code{\link{arrows}}, \code{\link{lines}}, also see
+  \code{\link{rasterImage}} for an alternative to ms.image
 }
 \examples{
 
