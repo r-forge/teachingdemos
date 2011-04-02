@@ -24,7 +24,7 @@ export(bct,char2seed,chisq.detail,ci.examp,clipplot,clt.examp,cnvrt.coords,
        Predict.Plot, TkPredict, "%<%", "%<=%", panel.my.symbols,
        SnowsPenultimateNormalityTest,vis.test,vt.qqnorm,vt.normhist,
        vt.scatterpermute,vt.tspermute,vt.residpermute,vt.residsim,
-       SnowsCorrectlySizedButOtherwiseUselessTestOfAnything)
+       SnowsCorrectlySizedButOtherwiseUselessTestOfAnything,petals)
 
 
 
