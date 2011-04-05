@@ -22,7 +22,7 @@ petals(plot = TRUE, txt = TRUE)
 }
 }
 \details{
-  At least one of the argumnets \code{plot} and \code{txt} needs to be
+  At least one of the arguments \code{plot} and \code{txt} needs to be
   true, otherwise you will be guessing blind (or testing your psychic
   abilities).
 
@@ -79,7 +79,7 @@ Pressing enter without making a guess ends the game.
 \note{
   Casual viewing of the function source code is unlikely to reveal the
   secret (and therefore this could be used as an example of one way to
-  disquise portions of code from casual examination).
+  disguise portions of code from casual examination).
 
   Some basic debugging can reveal the secret, but that would be cheating
   and an admission that such a simple game has defeated you, so don't do
