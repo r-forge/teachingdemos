@@ -1,5 +1,5 @@
 petals <- function(plot=TRUE, txt=TRUE) {
-    tmpstr <- "                                                                                                                                                                                                                                                                        "
+    tmpstr <- "	  		  	 	 	   		   	  	  			  			 	   	 		 	  	    	  		   	  				 	 					    	 		 	 		  		   	 	 	   	 	  	  				 	 		  			  				 	 						  				  	 						  				  	 			 		  				  	 						  				  	 				 	  				  	 						  		 		 	 		  	  	 				    	 	   	 	 		 	 		"
 tmpstr2 <- c(
              "
  O
@@ -40,8 +40,8 @@ O O")
     }
 }
 
-.onAttach <- function(...) {
-    petals <- petals
-    attr(petals,'source') <- "Don't Cheat!"
-    assign('petals',petals,'package:TeachingDemos')
-}
+#.onAttach <- function(...) {
+#    petals <- petals
+#    attr(petals,'source') <- "Don't Cheat!"
+#    assign('petals',petals,'package:TeachingDemos')
+#}

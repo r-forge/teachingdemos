@@ -62,7 +62,7 @@ plot(tmp)
 
 # a loaded die
 table(tmp <- dice(100,1,plot.it=TRUE, load=6:1 ) )
-mean(tmp)
+colMeans(tmp)
 
 # Efron's dice
 ed <- list( rep( c(4,0), c(4,2) ),
