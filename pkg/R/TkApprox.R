@@ -57,7 +57,7 @@ TkApprox <- function(x, y, type='b', snap.to.x=FALSE, digits=4,
     if(first) {
       first <<- FALSE
 #      tmp <- cnvrt.coords(c(0,1),c(0,1), input='dev')$usr
-      tmpx <- grconvertX(c(0,1), input='ndc')
+      tmpx <- grconvertX(c(0,1), from='ndc')
       ul <<- tmpx[1]
       ur <<- tmpx[2]
     }

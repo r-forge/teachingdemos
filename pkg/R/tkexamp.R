@@ -279,11 +279,11 @@ tkexamp <- function(FUN, param.list, vscale=1.5, hscale=1.5, wait=FALSE,
                     el2$init <- NULL
                     alist <- c(alist,el2)
                     tkpack( do.call('tkscale',alist), side='left')
-                    tke.tmp.env$an.inc <- if('resolution' %in% names(el)) {
+                    tke.tmp.env$an.inc <- an.inc <- if('resolution' %in% names(el)) {
                         el$resolution
                     } else { 1 }
                     tke.tmp.env$tke.tmp <- tmp
-                    tke.tmp.env$an.to <- el$to
+                    tke.tmp.env$an.to <- an.to <- el$to
                     tke.tmp.env$img <- img
                     tke.tmp.env$hsc <- hsc
                     tke.tmp.env$vsc <- vsc
@@ -352,17 +352,17 @@ tkexamp <- function(FUN, param.list, vscale=1.5, hscale=1.5, wait=FALSE,
                                    vscale=as.numeric(tclvalue(vsc))) )
                     el2 <- el[-1]
 
-                    tke.tmp.env$an.delay <- if('delay' %in% names(el) ) {
+                    tke.tmp.env$an.delay <- an.delay <- if('delay' %in% names(el) ) {
                         el$delay
                     } else {100}
                     el2$delay <- NULL
                     el2$init <- NULL
                     alist <- c(alist,el2)
                     tkpack( do.call('tkscale',alist), side='left')
-                    tke.tmp.env$an.inc <- if('resolution' %in% names(el)) {
+                    tke.tmp.env$an.inc <- an.inc <- if('resolution' %in% names(el)) {
                         el$resolution
                     } else { 1 }
-                    tke.tmp.env$an.to <- el$to
+                    tke.tmp.env$an.to <- an.to <- el$to
                     tke.tmp.env$tke.tmp <- tmp
                     tke.tmp.env$img <- img
                     tke.tmp.env$hsc <- hsc

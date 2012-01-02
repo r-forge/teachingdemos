@@ -33,9 +33,6 @@ called each year.  Missionaries generally serve for about 2 years.
 \source{
 Deseret News 2010 Church News Almanac
 }
-\references{
-%%  ~~ possibly secondary sources and usages ~~
-}
 \examples{
 data(ldsgrowth)
 with(ldsgrowth, plot(Year, log(Members)))

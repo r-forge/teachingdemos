@@ -10,7 +10,7 @@
 }
 \usage{
 dice(rolls = 1, ndice = 2, sides = 6, plot.it = FALSE, load = rep(1, sides))
-plot.dice(x, ...)
+\method{plot}{dice}(x, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

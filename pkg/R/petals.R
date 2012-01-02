@@ -1,4 +1,8 @@
 petals <- function(plot=TRUE, txt=TRUE) {
+
+    #######  Don't Cheat  #######
+
+
     tmpstr <- "	  		  	 	 	   		   	  	  			  			 	   	 		 	  	    	  		   	  				 	 					    	 		 	 		  		   	 	 	   	 	  	  				 	 		  			  				 	 						  				  	 						  				  	 			 		  				  	 						  				  	 				 	  				  	 						  		 		 	 		  	  	 				    	 	   	 	 		 	 		"
 tmpstr2 <- c(
              "
@@ -38,8 +42,16 @@ O O")
             resp <- TRUE
         }
     }
+
+####### Don't Cheat   ################
+
 }
 
+
+
+## The following lines hid the source code from casual inspection in R 2.13
+## but from 2.14 on this is no longer likely to work, see the R-help archives
+## for a possible alternative.
 #.onAttach <- function(...) {
 #    petals <- petals
 #    attr(petals,'source') <- "Don't Cheat!"

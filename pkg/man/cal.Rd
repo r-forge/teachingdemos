@@ -49,15 +49,10 @@ cal(month, year)
     graphics parameters so the corresponding day in the calendar becomes
     the current plotting figure.  See the examples below.
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{Greg Snow, \email{greg.snow@imail.org}}
-\note{
-%%  ~~further notes~~
-}
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
+\author{Greg Snow, \email{greg.snow@imail.org}}
+
+
 
 \seealso{
  \code{\link{Sys.time}}, \code{\link{as.POSIXlt}}, \code{\link{par}}, \code{\link{updateusr}}
