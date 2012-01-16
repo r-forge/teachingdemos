@@ -5,8 +5,8 @@ Author: Greg Snow
 Description: This package is a set of demonstration functions that can be used in a classroom to demonstrate statistical concepts, or on your own to better understand the concepts or the programming.
 Maintainer: Greg Snow <greg.snow@imail.org>
 License: Artistic-2.0
-Date: 2012-01-01
-Suggests: tkrplot, lattice, MASS, rgl, sgeostat, mapproj, tcltk, tcltk2, R2wd, EBImage, png, ggplot2, logspline
+Date: 2012-01-10
+Suggests: tkrplot, lattice, MASS, rgl, tcltk, tcltk2, R2wd, EBImage, png, ggplot2, logspline
 Enhances: qcc
 LazyData: true
 KeepSource: true

@@ -1,5 +1,8 @@
 New in TeachingDemos version 2.8
 
+* new functions TkBuildDist and TkBuildDist2 to interactively create a
+  (prior) distrbution.
+
 * new function cal to plot calendars
 
 * new 'animate' option for tkexamp
