@@ -97,8 +97,11 @@ subplot( hist(runif(100),main='',xlab='',ylab=''), 11, 51, hadj=0, vadj=0)
 subplot( hist(rexp(100, 1/3)), 20, 60, hadj=1, vadj=1, size=c(0.5,2) )
 subplot( hist(rt(100,3)), c(12,16), c(57,59), pars=list(lwd=3,ask=FALSE) )
 
+### some of the following examples work fine in an interactive session,
+### but loading the packages required does not work well in testing.
+
 # augment a map
-if( require(TeachingDemos) && require(maptools) ){
+if( interactive() && require(maptools) ){
 	plot(state.vbm,fg=NULL)
 	tmp <- cbind( state.vbm$center_x, state.vbm$center_y )
 	for( i in 1:50 ){
@@ -124,7 +127,7 @@ par(op)
 
 
 # scatter-plot using images
-if(require(EBImage)) {
+if(interactive() && require(EBImage)) {
 
   image.EBImage <- function(x,...) {
     tmp <- imageData(flip(x))

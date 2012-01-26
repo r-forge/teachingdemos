@@ -11,8 +11,7 @@ distribution) by clicking or dragging a plot.
 }
 \usage{
 TkBuildDist(x = seq(min + (max - min)/nbin/2, max - (max - min)/nbin/2, length.out = nbin), min = 0, max = 10, nbin = 10, logspline = TRUE, intervals = FALSE)
-}
-\usage{
+
 TkBuildDist2( min=0, max=1, nbin=10, logspline=TRUE)
 }
 \arguments{
