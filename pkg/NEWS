@@ -1,5 +1,8 @@
 New in TeachingDemos version 2.8
 
+* arguments xsize and ysize added to my.symbols to allow setting the
+  size of the symbols using the scale of the x or y variable.
+
 * new functions TkBuildDist and TkBuildDist2 to interactively create a
   (prior) distrbution.
 
