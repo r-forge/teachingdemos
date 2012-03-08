@@ -8,7 +8,7 @@ function( x=NULL, y=NULL, lsline=TRUE) {
 
   mode='add'
 
-  layout( matrix( c(2,1), nrow=1), width=c(3,1) )
+  layout( matrix( c(2,1), nrow=1), widths=c(3,1) )
 
 
   repeat {
