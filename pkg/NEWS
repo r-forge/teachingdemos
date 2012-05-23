@@ -1,5 +1,7 @@
 New in TeachingDemos version 2.9
 
+* Added function simfun to help with creating simulated data sets.
+
 * Modified squishplot function to remove missing values in case the
   entire data is submitted as xlim and ylim.
 
