@@ -5,7 +5,7 @@ TkListView <- function(list){
   if( !have.ttk() ) {
     stop('this function depends on having tcl 8.5 or higher')
   }
-  
+
     tt <- tktoplevel()
     tkwm.title(tt, deparse(substitute(list)))
 
@@ -42,6 +42,7 @@ TkListView <- function(list){
 	str.info <- capture.output( str(list, max.level=1, give.attr=FALSE,
                                         no.list=TRUE) )
 	str.info <- gsub(' ','\\\\ ',str.info)
+
 	n <- length(list)
 	nms <- names(list)
 	if( is.null(nms) ) nms <- rep('', n)
@@ -67,6 +68,7 @@ TkListView <- function(list){
     }
 
     buildtree(list, tree, '')
+
 
     getx <- function(list){
         tmp <- tclvalue(tkselect(tree))

@@ -1,11 +1,11 @@
 Package: TeachingDemos
 Title: Demonstrations for teaching and learning
-Version: 2.8
+Version: 2.9
 Author: Greg Snow
 Description: This package is a set of demonstration functions that can be used in a classroom to demonstrate statistical concepts, or on your own to better understand the concepts or the programming.
 Maintainer: Greg Snow <greg.snow@imail.org>
 License: Artistic-2.0
-Date: 2012-01-10
+Date: 2012-07-01
 Suggests: tkrplot, lattice, MASS, rgl, tcltk, tcltk2, R2wd, EBImage, png, ggplot2, logspline, maptools
 Enhances: qcc
 LazyData: true
