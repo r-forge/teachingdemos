@@ -23,7 +23,9 @@ Additional named items that will be in the environment when \code{expr} is evalu
 }
 }
 \details{
-  This function creates another function to simulate data.  You supply the general ideas of the simulation to this function and the resulting function can then be used to create simulated datasets.  The resulting function can then be given to students for them to simulate datasets, or used localy as part of larger simulations.
+  This function creates another function to simulate data.  You supply the general ideas of the simulation to this function and the resulting function can then be used to create simulated datasets.  The resulting function can then be given to students for them to simulate datasets, or used localy as part of larger simulations\
+  
+  The environment where the expression is evaluated will have all the columns or elements of the \code{data} argument available as well as the \code{data} argument itself.  Any variables/parameters passed through \code{...} in the original function will also be available.  You then supply the code based on those variables to create the simulated data.  The names of any columns or parameters submitted as part of \code{data} will need to match the code exactly (provide specific directions to the users on what columns need to be named).  Rember that indexing using factors indexes based on the underlying integers not the character representation.  See the examples for details.
   
   The resulting function can be saved and loaded/attached in different R sessions (it is important to use \code{save} rather than something like \code{dput} so that the environment of the function is preserved).
   
@@ -73,6 +75,18 @@ myexpr <- quote({
 simheight <- simfun(eval(myexpr), drop=c('n','h'))
 my.df <- data.frame(sex=sample(rep(c('Male','Female'),c(5,10))))
 (simdat <- simheight(my.df))
+
+# similar to above, but use named parameter vector and index by names
+
+myexpr <- quote({
+  n <- length(sex)
+  height <- h[ as.character(sex)] + rnorm(n,0,sig)
+})
+
+simheight <- simfun(eval(myexpr), drop=c('n','h','sig'), 
+  h=c(Male=69,Female=64), sig=3)
+my.df <- data.frame( sex=sample(c('Male','Female'),100, replace=TRUE))
+(simdat <- simheight(my.df, seed='example'))
 
 # Create a function to simulate Sex and Height for a given sample size 
 # (actually it will generate n males and n females for a total of 2*n samples)
@@ -139,6 +153,28 @@ simheight <- simfun({
 tmpdat <- data.frame(state=gl(5,20), city=gl(10,10), 
   sex=gl(2,5,length=100, labels=c('F','M')))
 heightdat <- simheight(tmpdat)
+
+# similar to above, but include cost information, this assumes that 
+# each new state costs $100, each new city is $10, and each subject is $1
+# this shows 2 possible methods
+
+simheight <- simfun({
+  n.city <- length(unique(city))
+  n.state <- length(unique(state))
+  n <- length(city)
+  height <- h[sex] + rnorm(n.state,0,sig.state)[state] + 
+    rnorm(n.city,0,sig.city)[city] + rnorm(n,0,sig.e)
+  cost <- 100 * (!duplicated(state)) + 10*(!duplicated(city)) + 1
+  cat('The total cost for this design is $', 100*n.state+10*n.city+1*n, 
+  '\n', sep='')
+}, sig.state=1, sig.city=0.5, sig.e=3, h=c(64,69),
+  drop=c('sig.state','sig.city','sig.e','h','n.city','n.state','n'))
+
+tmpdat <- data.frame(state=gl(5,20), city=gl(10,10), 
+  sex=gl(2,5,length=100, labels=c('F','M')))
+heightdat <- simheight(tmpdat)
+sum(heightdat$cost)
+
 
 # another mixed model method
 
