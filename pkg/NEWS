@@ -1,5 +1,8 @@
 New in TeachingDemos version 2.9
 
+* Added linesfun argument to my.symbols so that the user can use
+  functions like polygon in place of lines.
+
 * Added function simfun to help with creating simulated data sets.
 
 * Modified squishplot function to remove missing values in case the
