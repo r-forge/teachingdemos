@@ -1,5 +1,7 @@
 New in TeachingDemos version 2.9
 
+* Added USCrimes dataset
+
 * Added linesfun argument to my.symbols so that the user can use
   functions like polygon in place of lines.
 
