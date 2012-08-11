@@ -1,5 +1,11 @@
 New in TeachingDemos version 2.9
 
+* Changed names of plot.rgl.coin and plot.rgl.die to rgl.coin and
+  rgl.die to prevent confusion with S3 methods for plot generic
+  function.
+
+* added function cor.rect.plot to demonstrate concept of correlation.
+
 * Added USCrimes dataset
 
 * Added linesfun argument to my.symbols so that the user can use

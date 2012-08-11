@@ -60,9 +60,9 @@ The third dimension is the variable:
 \source{
 \url{http://www.ucrdatatool.gov/}
 }
-\references{
+%\references{
 %%  ~~ possibly secondary sources and usages ~~
-}
+%}
 \examples{
 data(USCrimes)
 ## maybe str(USCrimes)
@@ -78,7 +78,7 @@ if(require(maptools)) {
 	tmp.y <- c( tmp.y[1:8], 45, tmp.y[9:43], -18, tmp.y[44:50] )
 	tmp.r <- range( USCrimes[,,'ViolentCrimeRate'], na.rm=TRUE)
 	for(i in 1:52) {
-		subplot( plot(1960:2010, USCrimes[i,,'ViolentCrimeRate'], 
+		subplot( plot(1960:2010, USCrimes[i,,'ViolentCrimeRate'],
 					ann=FALSE, bty='n', type='l', axes=FALSE),
 			tmp.x[i], tmp.y[i], size=c(0.2,0.2) )
 	}
@@ -92,12 +92,12 @@ y.r <- range( USCrimes[-c(9,45),,'PropertyCrimeRate'], na.rm=TRUE )
 
 tmpfun <- function(Year=1960, ... ) {
 	y <- as.character(Year)
-	plot( USCrimes[-c(9,45),y,'Population'], 
+	plot( USCrimes[-c(9,45),y,'Population'],
 		 USCrimes[-c(9,45),y,'PropertyCrimeRate'],
 		type='n', xlab='log Population',
 		ylab='Property Crime Rate',
 		main=y, xlim=x.r, ylim=y.r, log='x' )
-	text( USCrimes[-c(9,45),y,'Population'], 
+	text( USCrimes[-c(9,45),y,'Population'],
 		 USCrimes[-c(9,45),y,'PropertyCrimeRate'],
 		state.abb, ... )
 }
