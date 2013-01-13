@@ -1,3 +1,10 @@
+### consider adding option to include errors Can iplement by using
+### options(error=newfunction) and newfunction would use the
+### savehistory command to get the expression and geterrmessage to get
+### the error message.  Warnings can be included by checking to see if
+### last.warning has changed, use print.warnings to format.
+
+
 R2txt.vars <- new.env()
 
 R2txt <- function(cmd,res,s,vis) {
