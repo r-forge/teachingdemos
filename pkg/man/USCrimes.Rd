@@ -86,7 +86,7 @@ if(require(maptools)) {
 
 
 ## Gapminder style animation over time
-
+if( interactive() ) {
 x.r <- range( USCrimes[-c(9,45),,'Population'], na.rm=TRUE )
 y.r <- range( USCrimes[-c(9,45),,'PropertyCrimeRate'], na.rm=TRUE )
 
@@ -106,5 +106,6 @@ tmp.list <- list( Year=list('animate', from=1960, to=2010, delay=250) )
 
 tmpcol <- c('blue','darkgreen','red','purple')[state.region]
 tkexamp( tmpfun(col=tmpcol), tmp.list )
+}
 }
 \keyword{datasets}

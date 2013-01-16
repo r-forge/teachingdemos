@@ -1,4 +1,4 @@
-d\name{cor.rect.plot}
+\name{cor.rect.plot}
 \alias{cor.rect.plot}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
@@ -36,7 +36,7 @@ Possible further arguments, currently ignored
 }
 \details{
   This will create a scatterplot of the data, draw refrence lines at the mean of \code{x} and the mean of \code{y}, then draw rectangles from the mean point to the data points.  The right and top axes will show the centered (and possibly scaled if \code{corr=TRUE}) values.
-  
+
   The idea is that the correlation/covariance is based on summing the area of the "positive" rectangles and subtracting the sum of the areas of the "negative" rectangles (then dividing by n-1).  If the positive and negative areas are about the same then the correlation/covariance is near 0, if there is more area in the positive rectangles then the correlation/covariance will be positive.
 }
 \value{

@@ -1,5 +1,10 @@
 New in TeachingDemos version 2.9
 
+* Added functions mdtxtStart, mdtxtStop, mdtxtComment, mdtxtSkip, and
+  mdtxtPlot to create transcript files using MarkDown which can then
+  be converted to common formats (pdf, MS Word, html, etc.) using the
+  pandoc program.
+
 * Changed names of plot.rgl.coin and plot.rgl.die to rgl.coin and
   rgl.die to prevent confusion with S3 methods for plot generic
   function.

@@ -146,7 +146,7 @@ plotloc='top', an.play=TRUE, print=FALSE, ...)
   the rpanel package }
 
 \examples{
-if(interactive()){
+if(interactive()) {
 
 x <- sort( runif(25,1,10) )
 y <- rnorm(25, x)
