@@ -510,7 +510,7 @@ R2mdtxt <- function(cmd,res,s,vis) {
           cat("```r\n",file=R2txt.vars$con)
           cat(R2txt.vars$prompt, cmdline, "\n", sep='',
               file=R2txt.vars$con)
-          cat("```\n", file=R2txt.vars$con)
+          cat("```\n\n", file=R2txt.vars$con)
       }
       if( R2txt.vars$cmdfile ) {
           cmdline <- deparse(cmd)
@@ -525,7 +525,7 @@ R2mdtxt <- function(cmd,res,s,vis) {
               if( grepl("^\\s*pand(er|oc)", cmdline)[1] ) {
                   cat("\n",file=R2txt.vars$con)
                   cat(tmp,sep='\n',file=R2txt.vars$con)
-                  cat("\n",file=R2txt.vars$con)
+                  cat("\n\n",file=R2txt.vars$con)
                   sink()
                   close(R2txt.vars$outcon)
                   R2txt.vars$outcon <- textConnection(NULL, open='w')
@@ -533,7 +533,7 @@ R2mdtxt <- function(cmd,res,s,vis) {
               } else {
                   cat("```\n",file=R2txt.vars$con)
                   cat(tmp,sep='\n',file=R2txt.vars$con)
-                  cat("```\n",file=R2txt.vars$con)
+                  cat("```\n\n",file=R2txt.vars$con)
                   sink()
                   close(R2txt.vars$outcon)
                   R2txt.vars$outcon <- textConnection(NULL, open='w')
@@ -616,8 +616,8 @@ mdtxtStart <- function(dir=tempfile('mdtxt'), file='transcript.md',
   R2txt.vars$prompt <- unlist(options('prompt'))
   R2txt.vars$continue <- unlist(options('continue'))
 
-  options(prompt= paste('etxt',R2txt.vars$prompt,sep=''),
-          continue= paste('etxt',R2txt.vars$continue,sep='') )
+  options(prompt= paste('mdtxt',R2txt.vars$prompt,sep=''),
+          continue= paste('mdtxt',R2txt.vars$continue,sep='') )
 
   cat('Output being copied to text file,\nuse mdtxtStop to end\n')
   addTaskCallback(R2mdtxt, name='r2mdtxt')
@@ -663,11 +663,13 @@ mdtxtSkip <- function(expr) {
     expr
 }
 
-mdtxtPlot <- function(file=paste0(tempfile('plot',R2txt.vars$dir),'.png'),
+mdtxtPlot <- function(file=tempfile('plot',R2txt.vars$dir,'.png'),
                      width=4, height=4) {
-    dev.copy(png, file=file, height=height, width=width)
+    file <- gsub("\\\\","/",file)
+    dev.copy(png, file=file, height=height, width=width, units='in',
+             res=300)
     dev.off()
-    cat('![plot ',file,'](',file,')\n', sep='', file=R2txt.vars$con)
+    cat('![plot ',file,'](',file,') \\\n\n', sep='', file=R2txt.vars$con)
     R2txt.vars$first <- TRUE
     invisible(NULL)
 }
