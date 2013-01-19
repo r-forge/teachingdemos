@@ -74,7 +74,7 @@ mdtxtComment(txt,cmdtxt)
 
 mdtxtSkip(expr)
 
-mdtxtPlot(file=paste0(tempfile('plot',R2txt.vars$dir),'.png'),
+mdtxtPlot(file=tempfile('plot',R2txt.vars$dir,'.png'),
                      width=4, height=4)
 
 }
