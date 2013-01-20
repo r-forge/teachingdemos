@@ -1,5 +1,9 @@
 New in TeachingDemos version 2.9
 
+* Removed sd.g, limits.g, and stats.g functions that work with the qcc
+  package as they are now included in qcc and don't need to be here
+  any more.
+
 * Added functions mdtxtStart, mdtxtStop, mdtxtComment, mdtxtSkip, and
   mdtxtPlot to create transcript files using MarkDown which can then
   be converted to common formats (pdf, MS Word, html, etc.) using the
