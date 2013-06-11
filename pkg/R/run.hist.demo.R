@@ -1,4 +1,4 @@
-"run.hist.demo" <-
+"run.hist.demo.old" <-
 function(x) {
 
   if(!require(tcltk)){stop('The tcltk package is needed')}
@@ -23,4 +23,8 @@ function(x) {
          title="Histogram Demo")
 
 }
+
+run.hist.demo <- function(x,...) {
+    if(!require(tkrplot)) { stop('The tkrplot package is needed')}
+
 

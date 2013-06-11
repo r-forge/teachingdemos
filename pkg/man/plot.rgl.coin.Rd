@@ -19,9 +19,9 @@ flip.rgl.coin(side = sample(2, 1), steps = 150)
 roll.rgl.die(side = sample(6, 1), steps = 250)
 }
 \arguments{
-  \item{x}{ for \code{plot.rgl.coin} a list with information for drawing
+  \item{x}{ for \code{rgl.coin} a list with information for drawing
     the faces of the coin, defaults to \code{coin.faces}.  For
-    \code{plot.rgl.die} a vector with the number of pips to put on the
+    \code{rgl.die} a vector with the number of pips to put on the
     sides of the die (alternative way of specifying \code{sides}). }
   \item{col}{ Color of lines on the coin faces. }
   \item{heads}{ Design to use as "heads" side of coin. }

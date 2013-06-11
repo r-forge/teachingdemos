@@ -59,7 +59,8 @@ if(interactive()) {
   TkListView(tmp)
 
   if(require(maptools)){
-    TkListView(state.vbm)
+    data(state.vbm)
+    TkListView(list(state.vbm))
   # change the eval box to: plot(x, type='l') and eval the main branches
   }
 
