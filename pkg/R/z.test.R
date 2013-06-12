@@ -1,8 +1,7 @@
-"z.test" <-
-function(x, mu=0, stdev,
+z.test <- function(x, mu=0, stdev,
                    alternative = c("two.sided", "less", "greater"),
                    sd=stdev,
-                   conf.level = 0.95, ... ){
+                   conf.level = 0.95, ... ) {
 
   if(missing(stdev) && missing(sd)) stop("You must specify a Standard Deviation of the population")
 
@@ -39,4 +38,3 @@ function(x, mu=0, stdev,
 
   return(out)
 }
-
