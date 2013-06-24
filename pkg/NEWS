@@ -1,5 +1,7 @@
 New in TeachingDemos version 2.10
 
+* Fixed subplot function to work better in multi frame plots with type='fig'. 
+
 * Fixed minor (and potentially major) bugs in TkListView
 
 New in TeachingDemos version 2.9
