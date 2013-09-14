@@ -167,7 +167,7 @@ R2etxt <- function(cmd,res,s,vis) {
       }
   } else {
 
-      if( R2txt.vars$cmd ){
+      if( R2txt.vars$cmd ) {
           cmdline <- deparse(cmd)
           cmdline <- gsub('    ', "\n", cmdline)
           cmdline <- gsub('}', "\n}", cmdline)
