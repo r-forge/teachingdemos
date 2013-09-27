@@ -7,7 +7,8 @@
   mean of a population when the standard deviation of the population is known.
 }
 \usage{
-z.test(x, mu = 0, stdev, alternative = c("two.sided", "less", "greater"), sd = stdev, conf.level = 0.95, ...)
+z.test(x, mu = 0, stdev, alternative = c("two.sided", "less", "greater"),
+  sd = stdev, conf.level = 0.95, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -36,7 +37,7 @@ z.test(x, mu = 0, stdev, alternative = c("two.sided", "less", "greater"), sd = s
   An object of class \code{htest} containing the results
 }
 %\references{ ~put references to the literature/web site here ~ }
-\author{ Greg Snow \email{greg.snow@imail.org} }
+\author{ Greg Snow \email{538280@gmail.com} }
 \note{ This function should be used for learning only, real data should
   generally use \code{t.test}. }
 

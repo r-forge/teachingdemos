@@ -42,11 +42,9 @@ digits(x, n = NULL, simplify = FALSE)
   matrix with 1 column for each element of \code{x}.
 }
 \author{
-  Greg Snow \email{greg.snow@imail.org}
+  Greg Snow \email{538280@gmail.com}
 }
-\note{
-%%  ~~further notes~~
-}
+
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
