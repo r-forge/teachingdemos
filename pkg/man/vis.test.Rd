@@ -74,7 +74,7 @@ vt.residsim(model, ..., orig=TRUE)
 
   The plotting function (\code{FUN}) can be an existing function or a
   user supplied function.  The function must have an argument named
-  "orig" which indication whether to plot the original data or the null
+  "orig" which indicates whether to plot the original data or the null
   hypothesis data.  A new seed will be set before each call to
   \code{FUN} except when \code{orig} is \code{TRUE}.  Inside the
   function if \code{orig} is \code{TRUE} then the function should plot

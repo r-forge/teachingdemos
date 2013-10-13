@@ -1,5 +1,8 @@
 New in TeachingDemos version 2.10
 
+* Modified z.test so that you can provide a sample mean and sample
+  size instead of the raw data.
+
 * Added digits function to compute digits of an integer
 
 * Fixed zoomplot to work with R 3.0
