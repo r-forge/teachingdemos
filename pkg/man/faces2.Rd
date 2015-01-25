@@ -67,7 +67,7 @@ JASA, 68, pp 361--368. }
 \note{ If you choose to not scale the data and any data values are
   outside of the 0 to 1 range, then strange things may happen.
 
-  This function is based on code available at \url{}, the good things
+  This function is based on code found on the internet, the good things
   come from there, any problems are likely due to my (Greg's) tweaking.
 }
 
