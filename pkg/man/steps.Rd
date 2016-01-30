@@ -118,15 +118,7 @@ the package author.
     \item{\code{Used.11PM}}{Any movement detected between 11 pm and Midnight}
   }
 }
-\details{
-%%  ~~ If necessary, more details than the __description__ above ~~
-}
-\source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
-}
-\references{
-\url{http://www.omron-healthcare.com/data/catalog/3/130/1/IM-HJ-113-E%2004-08-08-EN.pdf}
-}
+
 \examples{
 data(steps)
 ## maybe str(steps) ; plot(steps) ...

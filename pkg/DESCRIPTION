@@ -6,7 +6,7 @@ Description: This package is a set of demonstration functions that can be used i
 Maintainer: Greg Snow <538280@gmail.com>
 License: Artistic-2.0
 Date: 2013-12-21
-Suggests: tkrplot, lattice, MASS, rgl, tcltk, tcltk2, R2wd, EBImage, png, ggplot2, logspline, maptools
+Suggests: tkrplot, lattice, MASS, rgl, tcltk, tcltk2, png, ggplot2, logspline, maptools
 LazyData: true
 KeepSource: true
 
