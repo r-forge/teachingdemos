@@ -1,6 +1,6 @@
 manipulate.cor.examp <- function(n=100, 
                                  seed) {
-  if(!require(manipulate)) stop("This function depends on the manipulate package within Rstudio")
+  if(!requireNamespace('manipulate', quietly = TRUE)) stop("This function depends on the manipulate package within Rstudio")
   
   if(!missing(seed)) set.seed(seed)
   
@@ -22,6 +22,7 @@ manipulate.cor.examp <- function(n=100,
     title(paste("r =", round(r,3)))
   }
   
-  manipulate(replot(r),r=slider(-1,1,0,step=0.005))
+  r <- NA # so that following function does not complain about global var
+  manipulate::manipulate(replot(r),r=slider(-1,1,0,step=0.005))
   
 }

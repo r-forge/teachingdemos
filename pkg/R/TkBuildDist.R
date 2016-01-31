@@ -4,8 +4,8 @@ TkBuildDist <- function(  x=seq(min+(max-min)/nbin/2,
                           min=0, max=10, nbin=10, logspline=TRUE,
                           intervals=FALSE) {
 
-    if(logspline) logspline <- requireNamespace(logspline, quietly=TRUE)
-    requireNamespace(tkrplot, quietly = TRUE)
+    if(logspline) logspline <- requireNamespace('logspline', quietly=TRUE)
+    requireNamespace('tkrplot', quietly = TRUE)
 
     xxx <- x
 

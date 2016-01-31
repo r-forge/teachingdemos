@@ -1,6 +1,6 @@
 TkListView <- function(list) {
 
-  if( !require(tcltk) ) {
+  if( !requireNamespace('tcltk', quietly = TRUE) ) {
     stop('This function is dependent on the tcltk package')
   }
   if( !have.ttk() ) {
@@ -8,40 +8,40 @@ TkListView <- function(list) {
   }
 
 
-  tt <- tktoplevel()
-  tkwm.title(tt, deparse(substitute(list)))
+  tt <- tcltk::tktoplevel()
+  tcltk::tkwm.title(tt, deparse(substitute(list)))
 
-  fr1 <- tkframe(tt)
+  fr1 <- tcltk::tkframe(tt)
 
-  tkpack(fr1, '-side', 'left', '-fill', 'both', '-expand', 0)
+  tcltk::tkpack(fr1, '-side', 'left', '-fill', 'both', '-expand', 0)
   Sys.sleep(.1)  ## needed for some strange reason.
   tree <- tcltk::ttktreeview(fr1, '-selectmode','browse','-columns',1,height=21)
 
-  scrtree1 <- tkscrollbar(fr1, command=function(...)tkyview(tree,...))
-  scrtree2 <- tkscrollbar(fr1, command=function(...)tkxview(tree,...), orient='horizontal')
-  tkconfigure(tree, yscrollcommand=function(...)tkset(scrtree1,...),
-              xscrollcommand=function(...)tkset(scrtree2,...))
+  scrtree1 <- tcltk::tkscrollbar(fr1, command=function(...)tcltk::tkyview(tree,...))
+  scrtree2 <- tcltk::tkscrollbar(fr1, command=function(...)tcltk::tkxview(tree,...), orient='horizontal')
+  tcltk::tkconfigure(tree, yscrollcommand=function(...)tcltk::tkset(scrtree1,...),
+              xscrollcommand=function(...)tcltk::tkset(scrtree2,...))
 
 #  tkpack(scrtree1, side='right', fill='y',expand=1)
 #  tkpack(tree, side='right',fill='both',expand=1)
-  tkgrid(tree,scrtree1,sticky='nsew')
-  tkgrid(scrtree2,sticky='nsew')
-  tkgrid.columnconfigure(fr1, 0, weight=1)
-  tkgrid.rowconfigure(fr1,0,weight=1)
+  tcltk::tkgrid(tree,scrtree1,sticky='nsew')
+  tcltk::tkgrid(scrtree2,sticky='nsew')
+  tcltk::tkgrid.columnconfigure(fr1, 0, weight=1)
+  tcltk::tkgrid.rowconfigure(fr1,0,weight=1)
 
-  fr2 <- tkframe(tt)
-  tkpack(fr2, '-side','top','-fill','both','-expand',1)
+  fr2 <- tcltk::tkframe(tt)
+  tcltk::tkpack(fr2, '-side','top','-fill','both','-expand',1)
 
-  txt <- tktext(fr2, bg="white", font="courier", wrap='none', width=40)
-  scrtxt1 <- tkscrollbar(fr2, command=function(...)tkyview(txt,...))
-  scrtxt2 <- tkscrollbar(fr2, command=function(...)tkxview(txt,...), orient='horizontal')
-  tkconfigure(txt, yscrollcommand=function(...)tkset(scrtxt1,...),
-              xscrollcommand=function(...)tkset(scrtxt2,...))
+  txt <- tcltk::tktext(fr2, bg="white", font="courier", wrap='none', width=40)
+  scrtxt1 <- tcltk::tkscrollbar(fr2, command=function(...)tcltk::tkyview(txt,...))
+  scrtxt2 <- tcltk::tkscrollbar(fr2, command=function(...)tcltk::tkxview(txt,...), orient='horizontal')
+  tcltk::tkconfigure(txt, yscrollcommand=function(...)tcltk::tkset(scrtxt1,...),
+              xscrollcommand=function(...)tcltk::tkset(scrtxt2,...))
 
-  tkgrid(txt,scrtxt1, sticky='nsew')
-  tkgrid(scrtxt2,sticky='nsew')
-  tkgrid.columnconfigure(fr2, 0, weight=1)
-  tkgrid.rowconfigure(fr2, 0, weight=1)
+  tcltk::tkgrid(txt,scrtxt1, sticky='nsew')
+  tcltk::tkgrid(scrtxt2,sticky='nsew')
+  tcltk::tkgrid.columnconfigure(fr2, 0, weight=1)
+  tcltk::tkgrid.rowconfigure(fr2, 0, weight=1)
 
 
 
@@ -62,32 +62,32 @@ TkListView <- function(list) {
       id <- paste(parent, '.', i, sep='')
       nm <- nms[i]
       if(is.na(nm) || nm == '') nm <- paste0('[[',i,']]')
-      tkinsert(tree, parent, 'end', '-id', id, '-text', nm, '-values', str.info[i])
+      tcltk::tkinsert(tree, parent, 'end', '-id', id, '-text', nm, '-values', str.info[i])
       if( is.list(list[[i]]) ){
         Recall( list[[i]], tree, id )
       } else if( !is.null(attributes(list[[i]])) ) {
-        tkinsert(tree, id, 'end','-id', paste(id,'.a',sep=''), '-text', '<<Attributes>>')
+        tcltk::tkinsert(tree, id, 'end','-id', paste(id,'.a',sep=''), '-text', '<<Attributes>>')
         Recall( attributes(list[[i]]), tree, paste(id,'.a',sep='') )
       }
     }
     tmp <- as.list(attributes(list))
     tmp$names <- NULL
     if( length(tmp) ) {
-      tkinsert(tree, parent, 'end', '-id', paste(parent,'.aa',sep=''), '-text', '<<Attributes>>')
+      tcltk::tkinsert(tree, parent, 'end', '-id', paste(parent,'.aa',sep=''), '-text', '<<Attributes>>')
       Recall( tmp, tree, paste(parent,'.aa',sep='') )
     }
   }
 
   tmpvals <- capture.output(str(list,max.level=0))
   tmpvals <- gsub(' ','\\\\ ',tmpvals)
-  tkinsert(tree,'','end','-id', 0, '-text', deparse(substitute(list)), '-values', tmpvals)
+  tcltk::tkinsert(tree,'','end','-id', 0, '-text', deparse(substitute(list)), '-values', tmpvals)
 
 
   buildtree(list, tree, '0')
 
 
   getx <- function(list){
-    tmp <- tclvalue(tkselect(tree))
+    tmp <- tcltk::tclvalue(tcltk::tkselect(tree))
     tmp2 <- strsplit(tmp, '\\.')[[1]][-1]
     if(length(tmp2)==0) return(list)
     sb <- function(y, list) {
@@ -111,38 +111,38 @@ TkListView <- function(list) {
     sb(tmp2,list)
   }
 
-  pr <- tkbutton(tt, text='print', command=function(...) {
+  pr <- tcltk::tkbutton(tt, text='print', command=function(...) {
     tmp <- capture.output(print(getx(list)))
-    tkdelete(txt, '1.0','end')
-    tkinsert(txt, 'end', paste(tmp, collapse='\n'))
+    tcltk::tkdelete(txt, '1.0','end')
+    tcltk::tkinsert(txt, 'end', paste(tmp, collapse='\n'))
   }
   )
-  st <- tkbutton(tt, text='str',   command=function(...) {
+  st <- tcltk::tkbutton(tt, text='str',   command=function(...) {
     tmp <- capture.output(print(str(getx(list))))
-    tkdelete(txt, '1.0','end')
-    tkinsert(txt, 'end', paste(tmp, collapse='\n'))
+    tcltk::tkdelete(txt, '1.0','end')
+    tcltk::tkinsert(txt, 'end', paste(tmp, collapse='\n'))
   }
   )
 
-  tkpack(pr, side='top', anchor='w')
-  tkpack(st, side='top', anchor='w')
+  tcltk::tkpack(pr, side='top', anchor='w')
+  tcltk::tkpack(st, side='top', anchor='w')
 
-  fr3 <- tkframe(tt)
-  tkpack(fr3, side='top', expand=1, fill='x')
+  fr3 <- tcltk::tkframe(tt)
+  tcltk::tkpack(fr3, side='top', expand=1, fill='x')
 
-  cmd <- tclVar('summary(x)')
-  eve <- tkentry(fr3, textvariable=cmd)
-  ev  <- tkbutton(fr3, text='Eval:', command=function(...) {
-    tmp <- capture.output( eval(parse(text=tclvalue(cmd)), list(x=getx(list))))
-    tkdelete(txt, '1.0', 'end')
-    tkinsert(txt, 'end', paste(tmp, collapse='\n'))
+  cmd <- tcltk::tclVar('summary(x)')
+  eve <- tcltk::tkentry(fr3, textvariable=cmd)
+  ev  <- tcltk::tkbutton(fr3, text='Eval:', command=function(...) {
+    tmp <- capture.output( eval(parse(text=tcltk::tclvalue(cmd)), list(x=getx(list))))
+    tcltk::tkdelete(txt, '1.0', 'end')
+    tcltk::tkinsert(txt, 'end', paste(tmp, collapse='\n'))
   }
   )
 
-  tkpack(ev, side='left')
-  tkpack(eve, side='left')
+  tcltk::tkpack(ev, side='left')
+  tcltk::tkpack(eve, side='left')
 
-  tkpack(tkbutton(tt, text='Quit', command=function() tkdestroy(tt)),
+  tcltk::tkpack(tcltk::tkbutton(tt, text='Quit', command=function() tcltk::tkdestroy(tt)),
          side='bottom', anchor='e')
 
   invisible(NULL)
