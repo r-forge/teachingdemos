@@ -136,8 +136,8 @@ plotFagan <- function(hscale=1.5, vscale=1.5, wait=FALSE) {
   tcltk::tkpack(tcltk::tklabel(fr, text='Pre Test Probability: '), side='left', anchor='s')
   tcltk::tkpack(tcltk::tkscale(fr, variable=ppt, orient='horizontal',
                  command=function(...) tkrplot::tkrreplot(img,
-                   hscale=as.numeric(tclvalue(hsc)),
-                   vscale=as.numeric(tclvalue(vsc)) ),
+                   hscale=as.numeric(tcltk::tclvalue(hsc)),
+                   vscale=as.numeric(tcltk::tclvalue(vsc)) ),
                  from=0, to=1, resolution=.01), side='right')
 
   tcltk::tkpack(fr <- tcltk::tkframe(tt), side='top')
@@ -175,9 +175,9 @@ plotFagan <- function(hscale=1.5, vscale=1.5, wait=FALSE) {
 
   if(wait) {
     tcltk::tkwait.window(tt)
-    return( list(ppt = as.numeric(tclvalue(ppt)),
-                 lr = as.numeric(tclvalue(lr)),
-                 tr = tclvalue(tr)
+    return( list(ppt = as.numeric(tcltk::tclvalue(ppt)),
+                 lr = as.numeric(tcltk::tclvalue(lr)),
+                 tr = tcltk::tclvalue(tr)
                  ))
   } else {
     return(invisible(NULL))
@@ -271,10 +271,10 @@ plotFagan2 <- function(hscale=1.5, vscale=1.5, wait=FALSE) {
 
   if(wait) {
     tcltk::tkwait.window(tt)
-    return( list(ppt = as.numeric(tclvalue(ppt)),
-                 sens = as.numeric(tclvalue(sens)),
-                 spec = as.numeric(tclvalue(spec)),
-                 tr = tclvalue(tr)
+    return( list(ppt = as.numeric(tcltk::tclvalue(ppt)),
+                 sens = as.numeric(tcltk::tclvalue(sens)),
+                 spec = as.numeric(tcltk::tclvalue(spec)),
+                 tr = tcltk::tclvalue(tr)
                  ))
   } else {
     return(invisible(NULL))

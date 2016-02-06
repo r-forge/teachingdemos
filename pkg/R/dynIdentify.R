@@ -77,7 +77,7 @@ TkIdentify <- function(x,y,labels=seq_along(x), hscale=1.75, vscale=1.75,
                        corners = cbind( c(-1,0,1,-1,1,-1,0,1),
                                         c(1,1,1,0,0,-1,-1,-1) ),
                        ...) {
-    if( !requireNamespace(tkrplot, quietly = TRUE) ) stop('This function depends on the tkrplot package being available')
+    if( !requireNamespace('tkrplot', quietly = TRUE) ) stop('This function depends on the tkrplot package being available')
 
     md <- FALSE
 

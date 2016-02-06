@@ -23,6 +23,6 @@ manipulate.cor.examp <- function(n=100,
   }
   
   r <- NA # so that following function does not complain about global var
-  manipulate::manipulate(replot(r),r=slider(-1,1,0,step=0.005))
+  manipulate::manipulate(replot(r),r=manipulate::slider(-1,1,0,step=0.005))
   
 }

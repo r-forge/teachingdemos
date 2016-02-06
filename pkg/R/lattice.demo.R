@@ -2,9 +2,9 @@
 function(x,y,z, show3d=TRUE){
 
   if(!requireNamespace('tcltk', quietly = TRUE)){stop('The tcltk package is needed')}
+  if(!requireNamespace('lattice', quietly=TRUE)){stop('the lattice package is needed')}
   if(!exists('slider.env')) slider.env <<- new.env()
 
-  if(!require(lattice)) stop('The lattice package is needed')
 
   center <- mean(z); assign('center',tcltk::tclVar(center), envir=slider.env)
   width <- diff(range(z))/20*3; assign('width',tcltk::tclVar(width), envir=slider.env)
@@ -24,25 +24,25 @@ function(x,y,z, show3d=TRUE){
                                (shingle.max-min(z))/diff(range(z))) - 0.5
 
     if(s3d){
-      print(xyplot(y~x|shingle(z,rbind(range(z),c(shingle.min,shingle.max))),
+      print(lattice::xyplot(y~x|shingle(z,rbind(range(z),c(shingle.min,shingle.max))),
                    index.cond=list(2),
-                   strip=strip.custom(strip.names=TRUE,strip.levels=TRUE),
+                   strip=lattice::strip.custom(strip.names=TRUE,strip.levels=TRUE),
                    par.strip.text=list(cex=0.75)),
             split=c(1,1,1,2), more=T)
 
-      print(cloud(y~z+x, panel=function(x,y,z,...){
-        panel.cloud(x,y,z,panel.3d.cloud=function(x,y,z,groups,...){
-          panel.3dscatter(x,y,z,
+      print(lattice::cloud(y~z+x, panel=function(x,y,z,...){
+        lattice::panel.cloud(x,y,z,panel.3d.cloud=function(x,y,z,groups,...){
+          lattice::panel.3dscatter(x,y,z,
                           groups= factor(x>shingle.scaled.range[1] & x <shingle.scaled.range[2]),
                           ...)
-          panel.3dwire(x=shingle.scaled.range,
+          lattice::panel.3dwire(x=shingle.scaled.range,
                        y=c(-.5,.5), z=rep(-.5,4), at=c(-.57,.57), ...)
         },...) }), split=c(1,2,1,2),more=F)
 
     } else {
-      print(xyplot(y~x|shingle(z,rbind(range(z),c(shingle.min,shingle.max))),
+      print(lattice::xyplot(y~x|shingle(z,rbind(range(z),c(shingle.min,shingle.max))),
                    index.cond=list(2),
-                   strip=strip.custom(strip.names=TRUE,strip.levels=TRUE),
+                   strip=lattice::strip.custom(strip.names=TRUE,strip.levels=TRUE),
                    par.strip.text=list(cex=0.75)
                    ),
             split=c(1,1,1,1), more=F)

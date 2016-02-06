@@ -2,7 +2,7 @@ rgl.coin <- function(x, col='black', heads=x[[1]],
                           tails=x[[2]], ... ) {
     if(!requireNamespace('rgl', quietly = TRUE)) stop("This function depends on the 'rgl' library which is not available")
 
-  if(missing(x)) x <- coin.faces
+  if(missing(x)) x <- TeachingDemos::coin.faces
 
   rgl::rgl.viewpoint(0,0)
 

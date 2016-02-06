@@ -3,10 +3,10 @@ slider <- function (sl.functions, sl.names, sl.mins, sl.maxs, sl.deltas,
                     obj.name, obj.value, reset.function, title) {
   # slightly modified by J. Fox from the TeachingDemos package
   if (!missing(no))
-      return(as.numeric(tclvalue(get(paste("slider", no, sep = ""),
+      return(as.numeric(tcltk::tclvalue(get(paste("slider", no, sep = ""),
                                      envir = slider.env))))
   if (!missing(set.no.value)) {
-      try(eval(parse(text = paste("tclvalue(slider", set.no.value[1],
+      try(eval(parse(text = paste("tcltk::tclvalue(slider", set.no.value[1],
                      ")<-", set.no.value[2], sep = "")), envir = slider.env))
       return(set.no.value[2])
   }
@@ -21,9 +21,9 @@ slider <- function (sl.functions, sl.names, sl.mins, sl.maxs, sl.deltas,
   if (missing(title))
       title <- "slider control widget"
   #require(tcltk)
-  nt <- tktoplevel()
-  tkwm.title(nt, title)
-  tkwm.geometry(nt, "+0+0")
+  nt <- tcltk::tktoplevel()
+  tcltk::tkwm.title(nt, title)
+  tcltk::tkwm.geometry(nt, "+0+0")
   if (missing(sl.names))
       sl.names <- NULL
   if (missing(sl.functions))
@@ -31,15 +31,15 @@ slider <- function (sl.functions, sl.names, sl.mins, sl.maxs, sl.deltas,
       }
   for (i in seq(sl.names)) {
       eval(parse(text = paste("assign('slider", i,
-                 "',tclVar(sl.defaults[i]),envir=slider.env)",
+                 "',tcltk::tclVar(sl.defaults[i]),envir=slider.env)",
                  sep = "")))
-      tkpack(fr <- tkframe(nt))
-      lab <- tklabel(fr, text = sl.names[i], width = "25")
-      sc <- tkscale(fr, from = sl.mins[i], to = sl.maxs[i],
+      tcltk::tkpack(fr <- tcltk::tkframe(nt))
+      lab <- tcltk::tklabel(fr, text = sl.names[i], width = "25")
+      sc <- tcltk::tkscale(fr, from = sl.mins[i], to = sl.maxs[i],
                     showvalue = T, resolution = sl.deltas[i], orient = "horiz")
-      tkpack(lab, sc, side = "right")
+      tcltk::tkpack(lab, sc, side = "right")
       assign("sc", sc, envir = slider.env)
-      eval(parse(text = paste("tkconfigure(sc,variable=slider",
+      eval(parse(text = paste("tcltk::tkconfigure(sc,variable=slider",
                  i, ")", sep = "")), envir = slider.env)
       sl.fun <- if (length(sl.functions) > 1)
           sl.functions[[i]]
@@ -47,20 +47,20 @@ slider <- function (sl.functions, sl.names, sl.mins, sl.maxs, sl.deltas,
       if (!is.function(sl.fun))
           sl.fun <- eval(parse(text = paste("function(...){",
                                sl.fun, "}")))
-      tkconfigure(sc, command = sl.fun)
+      tcltk::tkconfigure(sc, command = sl.fun)
   }
   assign("slider.values.old", sl.defaults, envir = slider.env)
-  tkpack(f.but <- tkframe(nt), fill = "x")
-  tkpack(tkbutton(f.but, text = "Exit", command = function()
-                  tkdestroy(nt)),
+  tcltk::tkpack(f.but <- tcltk::tkframe(nt), fill = "x")
+  tcltk::tkpack(tcltk::tkbutton(f.but, text = "Exit", command = function()
+                  tcltk::tkdestroy(nt)),
          side = "right")
   if (!missing(reset.function)){
       if (!is.function(reset.function))
           reset.function <- eval(parse(text = paste("function(...){",
                                        reset.function, "}")))
-      tkpack(tkbutton(f.but, text = "Reset", command = function() {
+      tcltk::tkpack(tcltk::tkbutton(f.but, text = "Reset", command = function() {
           for (i in seq(sl.names)) eval(parse(text =
-                                              paste("tclvalue(slider",
+                                              paste("tcltk::tclvalue(slider",
                                                     i, ")<-", sl.defaults[i], sep = "")), envir = slider.env)
           reset.function()
       }), side = "right")
@@ -74,7 +74,7 @@ slider <- function (sl.functions, sl.names, sl.mins, sl.maxs, sl.deltas,
       if (!is.function(but.fun))
           but.fun <- eval(parse(text = paste("function(...){",
                                 but.fun, "}")))
-      tkpack(tkbutton(f.but, text = but.names[i], command = but.fun),
+      tcltk::tkpack(tcltk::tkbutton(f.but, text = but.names[i], command = but.fun),
              side = "left")
       cat("button", i, "eingerichtet")
   }

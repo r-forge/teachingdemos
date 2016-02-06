@@ -75,9 +75,9 @@ function(x=rnorm(25,10,1), y=rnorm(25,11,1.5) ){
 
   # cutoff
   tcltk::tkpack(fr <- tcltk::tkframe(m), side='top')
-  tcltk::tkpack(tklabel(fr, text='cutoff', width='10'), side='right')
+  tcltk::tkpack(tcltk::tklabel(fr, text='cutoff', width='10'), side='right')
 
-  tcltk::tkpack(sc <- tkscale(fr, command=roc.refresh, from=range.min,
+  tcltk::tkpack(sc <- tcltk::tkscale(fr, command=roc.refresh, from=range.min,
                        to=range.max, orient='horiz',
                        resolution = (range.max-range.min)/100,
                        showvalue=T),
