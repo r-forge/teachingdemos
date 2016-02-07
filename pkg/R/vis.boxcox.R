@@ -15,7 +15,7 @@ function(lambda = sample( c(-1,-0.5,0,1/3,1/2,1,2), 1) ) {
 
   if(!exists('slider.env')) slider.env <<-new.env()
 
-  lam <- 1 ; assign('lam',tclVar(lam), envir=slider.env)
+  lam <- 1 ; assign('lam',tcltk::tclVar(lam), envir=slider.env)
 
   bc.refresh <- function(...){
     lam <- as.numeric(evalq(tcltk::tclvalue(lam), envir=slider.env))
@@ -75,7 +75,7 @@ vis.boxcox <- function(lambda = sample( c(-1,-0.5,0,1/3,1/2,1,2), 1),
   tcltk::tclvalue(vsc) <- hscale
 
   replot <- function(...) {
-    tmp.l <- as.numeric(tclvalue(lam))
+    tmp.l <- as.numeric(tcltk::tclvalue(lam))
 
     par(mfcol=c(2,2))
 

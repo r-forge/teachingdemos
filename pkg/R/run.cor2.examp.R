@@ -118,7 +118,7 @@ run.cor2.examp <- function(n=100,seed,vscale=1.5,hscale=1.5,wait=FALSE) {
                    resolution=0.01), side='right')
 
     tcltk::tkpack(tfr <- tcltk::tkframe(tt), side='bottom', fill='x')
-    tcltk::tkpack(tcltk::tkbutton(tfr, text="Refresh", command=function() tkrreplot(img,
+    tcltk::tkpack(tcltk::tkbutton(tfr, text="Refresh", command=function() tkrplot::tkrreplot(img,
                                           hscale=as.numeric(tcltk::tclvalue(hsc)),
                                           vscale=as.numeric(tcltk::tclvalue(vsc)) ) ),
            side='left',anchor='s')

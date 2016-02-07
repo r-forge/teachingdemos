@@ -4,25 +4,25 @@ function(x, ...){
   if(!requireNamespace('tcltk', quietly=TRUE)){stop('The tcltk package is needed')}
   if(!exists('slider.env')) slider.env <<-new.env()
 
-  lab1 <- 'z'; assign('lab1', tclVar(lab1), envir=slider.env)
-  lab2 <- 'y'; assign('lab2', tclVar(lab2), envir=slider.env)
-  lab3 <- 'x'; assign('lab3', tclVar(lab3), envir=slider.env)
+  lab1 <- 'z'; assign('lab1', tcltk::tclVar(lab1), envir=slider.env)
+  lab2 <- 'y'; assign('lab2', tcltk::tclVar(lab2), envir=slider.env)
+  lab3 <- 'x'; assign('lab3', tcltk::tclVar(lab3), envir=slider.env)
 
-  val1 <-  40; assign('val1', tclVar(val1), envir=slider.env)
-  val2 <-   0; assign('val2', tclVar(val2), envir=slider.env)
-  val3 <- -60; assign('val3', tclVar(val3), envir=slider.env)
+  val1 <-  40; assign('val1', tcltk::tclVar(val1), envir=slider.env)
+  val2 <-   0; assign('val2', tcltk::tclVar(val2), envir=slider.env)
+  val3 <- -60; assign('val3', tcltk::tclVar(val3), envir=slider.env)
 
   cloud.options <- list(...)
 
   cloud.refresh <- function(...){
 
-    lab1 <- evalq(tclvalue(lab1), envir=slider.env)
-    lab2 <- evalq(tclvalue(lab2), envir=slider.env)
-    lab3 <- evalq(tclvalue(lab3), envir=slider.env)
+    lab1 <- evalq(tcltk::tclvalue(lab1), envir=slider.env)
+    lab2 <- evalq(tcltk::tclvalue(lab2), envir=slider.env)
+    lab3 <- evalq(tcltk::tclvalue(lab3), envir=slider.env)
 
-    val1 <- as.numeric(evalq(tclvalue(val1), envir=slider.env))
-    val2 <- as.numeric(evalq(tclvalue(val2), envir=slider.env))
-    val3 <- as.numeric(evalq(tclvalue(val3), envir=slider.env))
+    val1 <- as.numeric(evalq(tcltk::tclvalue(val1), envir=slider.env))
+    val2 <- as.numeric(evalq(tcltk::tclvalue(val2), envir=slider.env))
+    val3 <- as.numeric(evalq(tcltk::tclvalue(val3), envir=slider.env))
 
 
     sl <- list(val1,val2,val3)

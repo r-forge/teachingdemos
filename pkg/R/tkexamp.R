@@ -50,14 +50,14 @@ tkexamp <- function(FUN, param.list, vscale=1.5, hscale=1.5, wait=FALSE,
                 fr <- tcltk::tkframe(frame,relief='ridge',borderwidth=3)
                 tcltk::tkpack(fr, side=pkdir)
                 if(length(eln) && nchar(eln)){
-                  tcltk::tkpack(tklabel(fr, text=eln), side='top',anchor='nw')
+                  tcltk::tkpack(tcltk::tklabel(fr, text=eln), side='top',anchor='nw')
                 }
                 Recall(fr,el,ifelse(pkdir=='top','left','top'),vname)
                 next
             }
             if( tolower(el[[1]]) == 'numentry' ){
               tcltk::tkpack(fr <- tcltk::tkframe(frame),side=pkdir)
-              tcltk::tkpack(tklabel(fr,text=eln),
+              tcltk::tkpack(tcltk::tklabel(fr,text=eln),
                        side=ifelse(pkdir=='top','left','top'))
                 tmp <- tcltk::tclVar()
                 tcltk::tclvalue(tmp) <- if ('init' %in% names(el)) el$init else 1
@@ -172,7 +172,7 @@ tkexamp <- function(FUN, param.list, vscale=1.5, hscale=1.5, wait=FALSE,
                 next
             }
             if( tolower(el[[1]])== 'checkbox' ){
-                tmp <- tclVar()
+                tmp <- tcltk::tclVar()
                 tcltk::tclvalue(tmp) <- if('init' %in% names(el)) {
                     el$init
                 }  else { "F" }
@@ -198,7 +198,7 @@ tkexamp <- function(FUN, param.list, vscale=1.5, hscale=1.5, wait=FALSE,
                 next
             }
             if( tolower(el[[1]])== 'combobox' ){
-                if( !tcltk::have.ttk() ) stop('The combobox depends on having tcl 8.5 or higher, either install tcl 8.5 or rerun the function with a different control')
+                if( !have.ttk() ) stop('The combobox depends on having tcl 8.5 or higher, either install tcl 8.5 or rerun the function with a different control')
               tcltk::tkpack(fr <- tcltk::tkframe(frame), side=pkdir)
               tcltk::tkpack(tcltk::tklabel(fr,text=eln),
                        side=ifelse(pkdir=='top','left','top'))
@@ -246,7 +246,7 @@ tkexamp <- function(FUN, param.list, vscale=1.5, hscale=1.5, wait=FALSE,
                                vscale=as.numeric(tcltk::tclvalue(vsc))) )
                 pkdir2 <- ifelse( pkdir=='top', 'left', 'top' )
                 for( v in tmp.vals ){
-                    tkpack( do.call(tcltk::tkradiobutton, c(alist, value=v, text=v)),
+                    tcltk::tkpack( do.call(tcltk::tkradiobutton, c(alist, value=v, text=v)),
                            side=pkdir2 )
                 }
                 tmpcl <- as.list(cl)
@@ -323,7 +323,7 @@ tkexamp <- function(FUN, param.list, vscale=1.5, hscale=1.5, wait=FALSE,
                                           hscale=as.numeric(tcltk::tclvalue(hsc)),
                                           vscale=as.numeric(tcltk::tclvalue(vsc)))
                             }))
-                            tcltk::tclAfter(seq.wait[i], tmpfun)
+                            tcltk2::tclAfter(seq.wait[i], tmpfun)
                         }
                     }
 

@@ -1,4 +1,4 @@
-export(bct,char2seed,chisq.detail,ci.examp,clipplot,clt.examp,cnvrt.coords,
+     export(bct,char2seed,chisq.detail,ci.examp,clipplot,clt.examp,cnvrt.coords,
        dice,dots,dots2,emp.hpd,faces,faces2,fagan.plot,
        flip.rgl.coin,gp.close,gp.open,gp.plot,gp.splot,gp.send,hpd,
        Pvalue.norm.sim,Pvalue.binom.sim,simfun,

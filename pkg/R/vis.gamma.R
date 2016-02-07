@@ -16,10 +16,10 @@ function(){
   sc2 <- 0; assign('sc2', tcltk::tclVar(sc2), envir=slider.env)
   sg <- 1; assign('sg', tcltk::tclVar(sg), envir=slider.env)
 
-  xmin <- 0; assign('xmin',tclVar(xmin),envir=slider.env)
-  xmax <- 5; assign('xmax',tclVar(xmax),envir=slider.env)
-  ymin <- 0; assign('ymin',tclVar(ymin),envir=slider.env)
-  ymax <- 1; assign('ymax',tclVar(ymax),envir=slider.env)
+  xmin <- 0; assign('xmin',tcltk::tclVar(xmin),envir=slider.env)
+  xmax <- 5; assign('xmax',tcltk::tclVar(xmax),envir=slider.env)
+  ymin <- 0; assign('ymin',tcltk::tclVar(ymin),envir=slider.env)
+  ymax <- 1; assign('ymax',tcltk::tclVar(ymax),envir=slider.env)
 
   old.shape <- shape
   old.rate  <- rate
@@ -30,11 +30,11 @@ function(){
 
   gamma.refresh <- function(...){
 
-    shape <- as.numeric(evalq(tclvalue(shape), envir=slider.env))
-    rate  <- as.numeric(evalq(tclvalue(rate), envir=slider.env))
-    scale <- as.numeric(evalq(tclvalue(scale), envir=slider.env))
-    mean  <- as.numeric(evalq(tclvalue(mean), envir=slider.env))
-    sd    <- as.numeric(evalq(tclvalue(sd), envir=slider.env))
+    shape <- as.numeric(evalq(tcltk::tclvalue(shape), envir=slider.env))
+    rate  <- as.numeric(evalq(tcltk::tclvalue(rate), envir=slider.env))
+    scale <- as.numeric(evalq(tcltk::tclvalue(scale), envir=slider.env))
+    mean  <- as.numeric(evalq(tcltk::tclvalue(mean), envir=slider.env))
+    sd    <- as.numeric(evalq(tcltk::tclvalue(sd), envir=slider.env))
 
     if ( shape != old.shape ) {
 

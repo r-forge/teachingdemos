@@ -217,7 +217,7 @@ plotFagan2 <- function(hscale=1.5, vscale=1.5, wait=FALSE) {
   tt <- tcltk::tktoplevel()
   tcltk::tkwm.title(tt, "Fagan Plot Demo")
 
-  img <- tcltk::tkrplot(tt, replot, vscale=vscale, hscale=hscale)
+  img <- tkrplot::tkrplot(tt, replot, vscale=vscale, hscale=hscale)
   tcltk::tkpack(img, side='top')
 
   tcltk::tkpack(fr <- tcltk::tkframe(tt), side='top')
@@ -239,15 +239,15 @@ plotFagan2 <- function(hscale=1.5, vscale=1.5, wait=FALSE) {
   tcltk::tkpack(fr <- tcltk::tkframe(tt), side='top')
   tcltk::tkpack(tcltk::tklabel(fr, text='Specificity: '), side='left', anchor='s')
   tcltk::tkpack(tcltk::tkscale(fr, variable=spec, orient='horizontal',
-                 command=function(...) tkrreplot(img,
+                 command=function(...) tkrplot::tkrreplot(img,
                    hscale=as.numeric(tcltk::tclvalue(hsc)),
                    vscale=as.numeric(tcltk::tclvalue(vsc)) ),
                  from=0, to=1, resolution=.01), side='right')
 
   tcltk::tkpack(fr <- tcltk::tkframe(tt), side='top')
-  tcltk::tkpack(tkcheckbutton(fr, text='Positive Test Result', variable=tr,
+  tcltk::tkpack(tcltk::tkcheckbutton(fr, text='Positive Test Result', variable=tr,
                        onvalue='+', offvalue='-',
-                       command=function(...) tcltk::tkrreplot(img,
+                       command=function(...) tkrplot::tkrreplot(img,
                          hscale=as.numeric(tcltk::tclvalue(hsc)),
                          vscale=as.numeric(tcltk::tclvalue(vsc)) )
                        ),

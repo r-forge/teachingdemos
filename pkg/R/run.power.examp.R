@@ -47,12 +47,12 @@ run.power.examp <- function(hscale=1.5, vscale=1.5, wait=FALSE) {
     tt <- tcltk::tktoplevel()
     tcltk::tkwm.title(tt, "Power Demo")
 
-    img <- tcltk::tkrplot(tt, replot, vscale=vscale, hscale=hscale)
+    img <- tkrplot::tkrplot(tt, replot, vscale=vscale, hscale=hscale)
     tcltk::tkpack(img, side='left')
 
     tcltk::tkpack(fr <- tcltk::tkframe(tt), side='top', fill='x')
     tcltk::tkpack(tcltk::tklabel(fr, text="n: "), side='left')
-    tcltk::tkpack(tcltk::tdspinner(fr, values=c(1,2,3,4,5,10,20,30,40,50),
+    tcltk::tkpack(tdspinner(fr, values=c(1,2,3,4,5,10,20,30,40,50),
                       width=5, textvariable=n,
                       command=function(...) tkrplot::tkrreplot(img,
                         hscale=as.numeric(tcltk::tclvalue(hsc)),
@@ -100,7 +100,7 @@ run.power.examp <- function(hscale=1.5, vscale=1.5, wait=FALSE) {
     tcltk::tkpack(tcltk::tkentry(tfr,textvariable=vsc,width=6), side='left')
 
     tcltk::tkpack(tfr <- tcltk::tkframe(tt), side='bottom', fill='x')
-    tcltk::tkpack(tcltk::tkbutton(tfr, text="Refresh", command=function() tcltk::tkrreplot(img,
+    tcltk::tkpack(tcltk::tkbutton(tfr, text="Refresh", command=function() tkrplot::tkrreplot(img,
                                          hscale=as.numeric(tcltk::tclvalue(hsc)),
                                          vscale=as.numeric(tcltk::tclvalue(vsc)) ) ),
            side='left',anchor='s')

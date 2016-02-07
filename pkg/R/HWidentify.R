@@ -68,7 +68,7 @@ HTKidentify <- function(x,y,label=seq_along(x), lab.col='darkgreen',
 			label[w], col=lab.col, adj=adj)
 	}
 
-	tt <- tk::tktoplevel()
+	tt <- tcltk::tktoplevel()
 	img <- tkrplot::tkrplot(tt, replot, hscale=1.5, vscale=1.5)
 	tcltk::tkpack(img, side='top')
 	iw <- as.numeric(tcltk::tcl("image","width", tcltk::tkcget(img, "-image")))

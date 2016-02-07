@@ -2,6 +2,8 @@ slider <- function (sl.functions, sl.names, sl.mins, sl.maxs, sl.deltas,
                     sl.defaults, but.functions, but.names, no, set.no.value,
                     obj.name, obj.value, reset.function, title) {
   # slightly modified by J. Fox from the TeachingDemos package
+  requireNamespace('tcltk', quietly = TRUE)
+  
   if (!missing(no))
       return(as.numeric(tcltk::tclvalue(get(paste("slider", no, sep = ""),
                                      envir = slider.env))))
@@ -20,7 +22,7 @@ slider <- function (sl.functions, sl.names, sl.mins, sl.maxs, sl.deltas,
   }
   if (missing(title))
       title <- "slider control widget"
-  #require(tcltk)
+  
   nt <- tcltk::tktoplevel()
   tcltk::tkwm.title(nt, title)
   tcltk::tkwm.geometry(nt, "+0+0")

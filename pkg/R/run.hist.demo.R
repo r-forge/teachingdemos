@@ -1,7 +1,7 @@
 "run.hist.demo" <-
 function(x) {
 
-  if(!require(tcltk)){stop('The tcltk package is needed')}
+  if(!requireNamespace('tcltk', quietly=TRUE)){stop('The tcltk package is needed')}
 
   pr <- pretty(x)
   xr <- range(pr)
