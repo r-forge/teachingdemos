@@ -31,7 +31,26 @@
        TkBuildDist,TkBuildDist2)
 
 
-
+  importFrom("grDevices", "chull", "col2rgb", "colors", "dev.copy",
+             "dev.copy2eps", "dev.cur", "dev.new", "dev.off",
+             "getGraphicsEvent", "nclass.Sturges", "png", "recordPlot",
+             "replayPlot", "rgb", "xy.coords")
+  importFrom("graphics", "Axis", "abline", "arrows", "axis", "barplot",
+             "box", "curve", "frame", "grconvertX", "grconvertY", "hist",
+             "image", "layout", "legend", "lines", "locator", "mtext",
+             "pairs", "par", "persp", "plot", "plot.new", "plot.window",
+             "points", "polygon", "rect", "rug", "segments", "strheight",
+             "strwidth", "symbols", "text", "title")
+  importFrom("stats", "approxfun", "coef", "cor", "dbinom", "dchisq",
+             "delete.response", "density", "dexp", "dgamma", "dnorm",
+             "dpois", "dt", "fitted", "get_all_vars", "lm", "loess",
+             "loess.control", "median", "optimize", "pbinom", "pchisq",
+             "pnorm", "predict", "pt", "qchisq", "qgeom", "qnorm",
+             "qqline", "qqnorm", "qqplot", "qt", "quantile", "rbinom",
+             "resid", "rnorm", "runif", "scatter.smooth", "sd",
+             "splinefun", "terms", "var")
+  importFrom("utils", "capture.output", "file_test", "flush.console",
+             "str", "tail", "write.table")
 
 
 S3method(plot, dice)
