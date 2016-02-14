@@ -43,7 +43,7 @@ shadowtext(x, y = NULL, labels, col = "white", bg = "black",
 %\references{
 %% ~put references to the literature/web site here ~
 %}
-\author{Greg Snow, \email{538280@gmail.com}}
+\author{Greg Snow, \email{538280@gmail.com}, with improvements by Thomas Danhorn}
 %\note{
 %%  ~~further notes~~
 %}
