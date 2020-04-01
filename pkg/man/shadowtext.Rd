@@ -10,7 +10,8 @@
 }
 \usage{
 shadowtext(x, y = NULL, labels, col = "white", bg = "black",
-  theta = seq(pi/4, 2 * pi, length.out = 8), r = 0.1, ...)
+  theta = seq(pi/32, 2 * pi, length.out = 64), r = 0.1, 
+  cex = 1, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
