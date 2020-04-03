@@ -22,6 +22,7 @@ shadowtext(x, y = NULL, labels, col = "white", bg = "black",
   \item{bg}{Color of the background shadow}
   \item{theta}{Angles for plotting the background}
   \item{r}{Thickness of the shadow relative to plotting size}
+  \item{cex}{Character expansion passed through to \code{text}  and used in computing text size.}
   \item{\dots}{Additional arguments passed on to \code{text}}
 }
 \details{
